@@ -1,7 +1,24 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import viteSassDts from 'vite-plugin-sass-dts'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), viteSassDts()],
+  css: {
+    preprocessorOptions: {
+      sass: {
+        api: 'modern-compiler',
+      },
+    },
+  },
+  build: {
+    outDir: 'dist',
+    rollupOptions: {
+      input: ['./src/App.sass', './src/index.sass'],
+      output: {
+        assetFileNames: 'style.[ext]',
+      },
+    }
+  },
 })
