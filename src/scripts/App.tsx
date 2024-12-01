@@ -7,9 +7,42 @@ const App: React.FC = () =>  {
   const [inputText, setInputText] = useState<string>('');
 
   const buttonTextMap: { [key: string]: string } = {
+    key_1: '1',
+    key_2: '2',
+    key_3: '3',
+    key_4: '4',
+    key_5: '5',
+    key_6: '6',
+    key_7: '7',
+    key_8: '8',
+    key_9: '9',
+    key_0: '0',
     key_q: 'q',
     key_w: 'w',
     key_e: 'e',
+    key_r: 'r',
+    key_t: 't',
+    key_y: 'y',
+    key_u: 'u',
+    key_i: 'i',
+    key_o: 'o',
+    key_p: 'p',
+    key_a: 'a',
+    key_s: 's',
+    key_d: 'd',
+    key_f: 'f',
+    key_g: 'g',
+    key_h: 'h',
+    key_j: 'j',
+    key_k: 'k',
+    key_l: 'l',
+    key_z: 'z',
+    key_x: 'x',
+    key_c: 'c',
+    key_v: 'v',
+    key_b: 'b',
+    key_n: 'n',
+    key_m: 'm',
     // добавьте другие кнопки и их тексты по необходимости
   };
 
@@ -31,31 +64,31 @@ const App: React.FC = () =>  {
       <div className="keyboard">
         <div className="row">
             <div className="key">Esc</div>
-            <div className="key">F1</div>
-            <div className="key">F2</div>
-            <div className="key">F3</div>
-            <div className="key">F4</div>
-            <div className="key">F5</div>
-            <div className="key">F6</div>
-            <div className="key">F7</div>
-            <div className="key">F8</div>
-            <div className="key">F9</div>
-            <div className="key">F10</div>
-            <div className="key">F11</div>
-            <div className="key">F12</div>
+            <div className="key" onClick={() => handleButtonClick('key_f1')}>F1</div>
+            <div className="key" onClick={() => handleButtonClick('key_f2')}>F2</div>
+            <div className="key" onClick={() => handleButtonClick('key_f3')}>F3</div>
+            <div className="key" onClick={() => handleButtonClick('key_f4')}>F4</div>
+            <div className="key" onClick={() => handleButtonClick('key_f5')}>F5</div>
+            <div className="key" onClick={() => handleButtonClick('key_f6')}>F6</div>
+            <div className="key" onClick={() => handleButtonClick('key_f7')}>F7</div>
+            <div className="key" onClick={() => handleButtonClick('key_f8')}>F8</div>
+            <div className="key" onClick={() => handleButtonClick('key_f9')}>F9</div>
+            <div className="key" onClick={() => handleButtonClick('key_f10')}>F10</div>
+            <div className="key" onClick={() => handleButtonClick('key_f11')}>F11</div>
+            <div className="key" onClick={() => handleButtonClick('key_f12')}>F12</div>
         </div>
         <div className="row">
             <div className="key">~</div>
-            <div className="key" id="number_one">1</div>
-            <div className="key" id="number_two">2</div>
-            <div className="key" id="number_three">3</div>
-            <div className="key" id="number_four">4</div>
-            <div className="key" id="number_five">5</div>
-            <div className="key" id="number_six">6</div>
-            <div className="key" id="number_seven">7</div>
-            <div className="key" id="number_eight">8</div>
-            <div className="key" id="number_nine">9</div>
-            <div className="key" id="number_zero">0</div>
+            <div className="key" onClick={() => handleButtonClick('key_1')}>1</div>
+            <div className="key" onClick={() => handleButtonClick('key_2')}>2</div>
+            <div className="key" onClick={() => handleButtonClick('key_3')}>3</div>
+            <div className="key" onClick={() => handleButtonClick('key_4')}>4</div>
+            <div className="key" onClick={() => handleButtonClick('key_5')}>5</div>
+            <div className="key" onClick={() => handleButtonClick('key_6')}>6</div>
+            <div className="key" onClick={() => handleButtonClick('key_7')}>7</div>
+            <div className="key" onClick={() => handleButtonClick('key_8')}>8</div>
+            <div className="key" onClick={() => handleButtonClick('key_9')}>9</div>
+            <div className="key" onClick={() => handleButtonClick('key_0')}>0</div>
             <div className="key">-</div>
             <div className="key">+</div>
             <div className="key" onClick={handleRemoveLastCharacter}>Backspace</div>
@@ -65,44 +98,44 @@ const App: React.FC = () =>  {
             <div className="key" onClick={() => handleButtonClick('key_q')}>Q</div>
             <div className="key" onClick={() => handleButtonClick('key_w')}>W</div>
             <div className="key" onClick={() => handleButtonClick('key_e')}>E</div>
-            <div className="key" id="key_r">R</div>
-            <div className="key" id="key_t">T</div>
-            <div className="key" id="key_y">Y</div>
-            <div className="key" id="key_u">U</div>
-            <div className="key" id="key_i">I</div>
-            <div className="key" id="key_o">O</div>
-            <div className="key" id="key_p">P</div>
-            <div className="key" id="key_[">[</div>
-            <div className="key" id="key_]">]</div>
+            <div className="key" onClick={() => handleButtonClick('key_r')}>R</div>
+            <div className="key" onClick={() => handleButtonClick('key_t')}>T</div>
+            <div className="key" onClick={() => handleButtonClick('key_y')}>Y</div>
+            <div className="key" onClick={() => handleButtonClick('key_u')}>U</div>
+            <div className="key" onClick={() => handleButtonClick('key_i')}>I</div>
+            <div className="key" onClick={() => handleButtonClick('key_o')}>O</div>
+            <div className="key" onClick={() => handleButtonClick('key_p')}>P</div>
+            <div className="key" onClick={() => handleButtonClick('key_[')}>[</div>
+            <div className="key" onClick={() => handleButtonClick('key_]')}>]</div>
             <div className="key" id="key_\">\</div>
         </div>
         <div className="row">
             <div className="key">Caps Lock</div>
-            <div className="key">A</div>
-            <div className="key">S</div>
-            <div className="key">D</div>
-            <div className="key">F</div>
-            <div className="key">G</div>
-            <div className="key">H</div>
-            <div className="key">J</div>
-            <div className="key">K</div>
-            <div className="key">L</div>
-            <div className="key">;</div>
-            <div className="key">'</div>
-            <div className="key">Enter</div>
+            <div className="key" onClick={() => handleButtonClick('key_a')}>A</div>
+            <div className="key" onClick={() => handleButtonClick('key_s')}>S</div>
+            <div className="key" onClick={() => handleButtonClick('key_d')}>D</div>
+            <div className="key" onClick={() => handleButtonClick('key_f')}>F</div>
+            <div className="key" onClick={() => handleButtonClick('key_g')}>G</div>
+            <div className="key" onClick={() => handleButtonClick('key_h')}>H</div>
+            <div className="key" onClick={() => handleButtonClick('key_j')}>J</div>
+            <div className="key" onClick={() => handleButtonClick('key_k')}>K</div>
+            <div className="key" onClick={() => handleButtonClick('key_l')}>L</div>
+            <div className="key" onClick={() => handleButtonClick('key_;')}>;</div>
+            <div className="key" onClick={() => handleButtonClick('key_')}>'</div>
+            <div className="key" onClick={() => handleButtonClick('key_enter')}>Enter</div>
         </div>
         <div className="row">
             <div className="key shift">Shift</div>
-            <div className="key">Z</div>
-            <div className="key">X</div>
-            <div className="key">C</div>
-            <div className="key">V</div>
-            <div className="key">B</div>
-            <div className="key">N</div>
-            <div className="key">M</div>
-            <div className="key">,</div>
-            <div className="key">.</div>
-            <div className="key">/</div>
+            <div className="key" onClick={() => handleButtonClick('key_z')}>Z</div>
+            <div className="key" onClick={() => handleButtonClick('key_x')}>X</div>
+            <div className="key" onClick={() => handleButtonClick('key_c')}>C</div>
+            <div className="key" onClick={() => handleButtonClick('key_v')}>V</div>
+            <div className="key" onClick={() => handleButtonClick('key_b')}>B</div>
+            <div className="key" onClick={() => handleButtonClick('key_n')}>N</div>
+            <div className="key" onClick={() => handleButtonClick('key_m')}>M</div>
+            <div className="key" onClick={() => handleButtonClick('key_,')}>,</div>
+            <div className="key" onClick={() => handleButtonClick('key_.')}>.</div>
+            <div className="key" onClick={() => handleButtonClick('key_e')}>/</div>
             <div className="key shift">Shift</div>
         </div>
         <div className="row">
