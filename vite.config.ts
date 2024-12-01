@@ -15,7 +15,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     rollupOptions: {
-      input: ['./src/App.sass', './src/index.sass'],
+      input: ['./src/preprocessor/App.sass', './src/preprocessor/index.sass'],
       output: {
         assetFileNames: 'style.[ext]',
       },
