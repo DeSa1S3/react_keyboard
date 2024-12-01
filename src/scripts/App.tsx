@@ -1,32 +1,78 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import '../preprocessor/App.sass'
 
 const App: React.FC = () =>  {
 
-  const [clickedButtons, setClickedButtons] = useState<string[]>([]);
   const [inputText, setInputText] = useState<string>('');
+  const [isUpperCase, setIsUpperCase] = useState<boolean>(false); // Флаг для отслеживания регистра
+  const inputRef = useRef<HTMLInputElement>(null);
+
 
   const buttonTextMap: { [key: string]: string } = {
     key_q: 'q',
     key_w: 'w',
     key_e: 'e',
-    // добавьте другие кнопки и их тексты по необходимости
+    key_space: ' ',
   };
 
   // Функция для обработки нажатия кнопки
   const handleButtonClick = (id: string) => {
-    setClickedButtons((prev) => [...prev, id]);
-    setInputText((prevText) => prevText + buttonTextMap[id]);
+    const textToAdd = buttonTextMap[id];
+    setInputText((prevText) => prevText + (isUpperCase ? textToAdd.toUpperCase() : textToAdd.toLowerCase()));
+  
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
   };
 
   const handleRemoveLastCharacter = () => {
-    setInputText((prevText) => prevText.slice(0, -1)); // Удаляем последний символ
+    const input = inputRef.current;
+    if (input) {
+      const { selectionStart } = input;
+
+      if (selectionStart != null) {
+        if (selectionStart > 0) {
+          const newText = inputText.slice(0, selectionStart - 1) + inputText.slice(selectionStart);
+          setInputText(newText);
+          // Устанавливаем курсор на одну позицию влево
+          setTimeout(() => {
+            input.setSelectionRange(selectionStart - 1, selectionStart - 1);
+          }, 0);
+        }
+      }
+    }
+
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
   };
+
+  const handleToggleCase = () => {
+    setIsUpperCase(prev => !prev); // Переключаем регистр
+  };
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputText(event.target.value);
+  };
+
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
 
   return (
     <>
+ 
       <div className="inputLine">
-        <input className="inputLine_text" type="text" value={inputText}></input>
+        <input 
+          className="inputLine_text" 
+          type="text" 
+          value={inputText} 
+          ref={inputRef} 
+          onChange={handleInputChange}>
+        </input>
       </div>
       <div className="keyboard">
         <div className="row">
@@ -62,44 +108,44 @@ const App: React.FC = () =>  {
         </div>
         <div className="row">
             <div className="key" id="key_tab">Tab</div>
-            <div className="key" onClick={() => handleButtonClick('key_q')}>Q</div>
-            <div className="key" onClick={() => handleButtonClick('key_w')}>W</div>
-            <div className="key" onClick={() => handleButtonClick('key_e')}>E</div>
-            <div className="key" id="key_r">R</div>
-            <div className="key" id="key_t">T</div>
-            <div className="key" id="key_y">Y</div>
-            <div className="key" id="key_u">U</div>
-            <div className="key" id="key_i">I</div>
-            <div className="key" id="key_o">O</div>
-            <div className="key" id="key_p">P</div>
+            <div className="key" onClick={() => handleButtonClick('key_q')}>{isUpperCase ? 'Q' : 'q'}</div>
+            <div className="key" onClick={() => handleButtonClick('key_w')}>{isUpperCase ? 'W' : 'w'}</div>
+            <div className="key" onClick={() => handleButtonClick('key_e')}>{isUpperCase ? 'E' : 'e'}</div>
+            <div className="key" id="key_r">{isUpperCase ? 'R' : 'r'}</div>
+            <div className="key" id="key_t">{isUpperCase ? 'T' : 't'}</div>
+            <div className="key" id="key_y">{isUpperCase ? 'Y' : 'y'}</div>
+            <div className="key" id="key_u">{isUpperCase ? 'U' : 'u'}</div>
+            <div className="key" id="key_i">{isUpperCase ? 'I' : 'i'}</div>
+            <div className="key" id="key_o">{isUpperCase ? 'O' : 'o'}</div>
+            <div className="key" id="key_p">{isUpperCase ? 'P' : 'p'}</div>
             <div className="key" id="key_[">[</div>
             <div className="key" id="key_]">]</div>
             <div className="key" id="key_\">\</div>
         </div>
         <div className="row">
-            <div className="key">Caps Lock</div>
-            <div className="key">A</div>
-            <div className="key">S</div>
-            <div className="key">D</div>
-            <div className="key">F</div>
-            <div className="key">G</div>
-            <div className="key">H</div>
-            <div className="key">J</div>
-            <div className="key">K</div>
-            <div className="key">L</div>
+            <div className="key" onClick={handleToggleCase}>Caps Lock</div>
+            <div className="key">{isUpperCase ? 'A' : 'a'}</div>
+            <div className="key">{isUpperCase ? 'S' : 's'}</div>
+            <div className="key">{isUpperCase ? 'D' : 'd'}</div>
+            <div className="key">{isUpperCase ? 'F' : 'f'}</div>
+            <div className="key">{isUpperCase ? 'G' : 'g'}</div>
+            <div className="key">{isUpperCase ? 'H' : 'h'}</div>
+            <div className="key">{isUpperCase ? 'J' : 'j'}</div>
+            <div className="key">{isUpperCase ? 'K' : 'k'}</div>
+            <div className="key">{isUpperCase ? 'L' : 'l'}</div>
             <div className="key">;</div>
             <div className="key">'</div>
             <div className="key">Enter</div>
         </div>
         <div className="row">
             <div className="key shift">Shift</div>
-            <div className="key">Z</div>
-            <div className="key">X</div>
-            <div className="key">C</div>
-            <div className="key">V</div>
-            <div className="key">B</div>
-            <div className="key">N</div>
-            <div className="key">M</div>
+            <div className="key">{isUpperCase ? 'Z' : 'z'}</div>
+            <div className="key">{isUpperCase ? 'X' : 'x'}</div>
+            <div className="key">{isUpperCase ? 'C' : 'c'}</div>
+            <div className="key">{isUpperCase ? 'V' : 'v'}</div>
+            <div className="key">{isUpperCase ? 'B' : 'b'}</div>
+            <div className="key">{isUpperCase ? 'N' : 'n'}</div>
+            <div className="key">{isUpperCase ? 'M' : 'm'}</div>
             <div className="key">,</div>
             <div className="key">.</div>
             <div className="key">/</div>
@@ -109,7 +155,7 @@ const App: React.FC = () =>  {
             <div className="key ctrl">Ctrl</div>
             <div className="key">Win</div>
             <div className="key">Alt</div>
-            <div className="key space">Пробел</div>
+            <div className="key space" onClick={() => handleButtonClick('key_space')}>Пробел</div>
             <div className="key">Alt</div>
             <div className="key">Win</div>
             <div className="key ctrl">Ctrl</div>
