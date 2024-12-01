@@ -5,13 +5,19 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Экранная клавиатура</title>
-    <link rel="stylesheet" href="./src/App.sass">
+    <link rel="stylesheet" href="./src/preprocessor/App.sass">
   </head>
   <body>
+<<<<<<< HEAD
       <div class="inputLine">
         <input class="inputLine_text" type="text">
       </div>
       <div class="keyboard">
+=======
+      <div id="root"></div>
+
+      <!-- <div class="keyboard">
+>>>>>>> 435fd75 (Реализовал нажатие на клавиши, отображение в input)
         <div class="row">
             <div class="key">Esc</div>
             <div class="key">F1</div>
@@ -29,35 +35,35 @@
         </div>
         <div class="row">
             <div class="key">~</div>
-            <div class="key">1</div>
-            <div class="key">2</div>
-            <div class="key">3</div>
-            <div class="key">4</div>
-            <div class="key">5</div>
-            <div class="key">6</div>
-            <div class="key">7</div>
-            <div class="key">8</div>
-            <div class="key">9</div>
-            <div class="key">0</div>
+            <div class="key" id="number_one">1</div>
+            <div class="key" id="number_two">2</div>
+            <div class="key" id="number_three">3</div>
+            <div class="key" id="number_four">4</div>
+            <div class="key" id="number_five">5</div>
+            <div class="key" id="number_six">6</div>
+            <div class="key" id="number_seven">7</div>
+            <div class="key" id="number_eight">8</div>
+            <div class="key" id="number_nine">9</div>
+            <div class="key" id="number_zero">0</div>
             <div class="key">-</div>
             <div class="key">+</div>
             <div class="key">Backspace</div>
         </div>
         <div class="row">
-            <div class="key">Tab</div>
-            <div class="key">Q</div>
-            <div class="key">W</div>
-            <div class="key">E</div>
-            <div class="key">R</div>
-            <div class="key">T</div>
-            <div class="key">Y</div>
-            <div class="key">U</div>
-            <div class="key">I</div>
-            <div class="key">O</div>
-            <div class="key">P</div>
-            <div class="key">[</div>
-            <div class="key">]</div>
-            <div class="key">\</div>
+            <div class="key" id="key_tab">Tab</div>
+            <div class="key" id="key_q">Q</div>
+            <div class="key" id="key_w">W</div>
+            <div class="key" id="key_e">E</div>
+            <div class="key" id="key_r">R</div>
+            <div class="key" id="key_t">T</div>
+            <div class="key" id="key_y">Y</div>
+            <div class="key" id="key_u">U</div>
+            <div class="key" id="key_i">I</div>
+            <div class="key" id="key_o">O</div>
+            <div class="key" id="key_p">P</div>
+            <div class="key" id="key_[">[</div>
+            <div class="key" id="key_]">]</div>
+            <div class="key" id="key_\">\</div>
         </div>
         <div class="row">
             <div class="key">Caps Lock</div>
@@ -97,8 +103,8 @@
             <div class="key">Win</div>
             <div class="key ctrl">Ctrl</div>
         </div>
-    </div>
+      </div> -->
 
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="/src/scripts/main.tsx"></script>
   </body>
 </html>
