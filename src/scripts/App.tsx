@@ -1,5 +1,9 @@
 import { useState, useRef, useEffect } from 'react'
 import '../preprocessor/App.sass'
+import winImageLeft from '../assets/free-icon-globe-558593.png'; 
+import winImageRight from '../assets/free-icon-text-3721901.png'; 
+import EnterImage from '../assets/icons8-enter-key-50.png'; 
+import BackSpaceImage from '../assets/free-icon-backspace-7465583.png'; 
 
 const App: React.FC = () =>  {
 
@@ -53,7 +57,9 @@ const App: React.FC = () =>  {
     key_comma: ',',
     key_slash: '\\',
     key_revslash: '/',
-    key_dot: '.'
+    key_dot: '.',
+    key_minus: '-',
+    key_plus: '+'
   };
 
   // Функция для обработки нажатия кнопки
@@ -143,9 +149,15 @@ const App: React.FC = () =>  {
             <div className="key" onClick={() => handleButtonClick('key_8')}>8</div>
             <div className="key" onClick={() => handleButtonClick('key_9')}>9</div>
             <div className="key" onClick={() => handleButtonClick('key_0')}>0</div>
-            <div className="key">-</div>
-            <div className="key">+</div>
-            <div className="key" onClick={handleRemoveLastCharacter}>Backspace</div>
+            <div className="key" onClick={() => handleButtonClick('key_minus')}>-</div>
+            <div className="key" onClick={() => handleButtonClick('key_plus')}>+</div>
+            <div className="key">
+              <img src={BackSpaceImage} 
+                alt="Backspace" 
+                onClick={handleRemoveLastCharacter} 
+                style={{ width: '20px', height: '20px' }} 
+              />
+            </div>   
         </div>
         <div className="row">
             <div className="key" id="key_tab">Tab</div>
@@ -176,7 +188,9 @@ const App: React.FC = () =>  {
             <div className="key" onClick={() => handleButtonClick('key_l')}>{isUpperCase ? 'L' : 'l'}</div>
             <div className="key" onClick={() => handleButtonClick('key_semicolon')}>;</div>
             <div className="key" onClick={() => handleButtonClick('key_uppercomma')}>'</div>
-            <div className="key">Enter</div>
+            <div className="key">
+              <img src={EnterImage} alt="Enter" style={{ width: '20px', height: '20px' }} />
+            </div>    
         </div>
         <div className="row">
             <div className="key shift">Shift</div>
@@ -194,11 +208,15 @@ const App: React.FC = () =>  {
         </div>
         <div className="row">
             <div className="key ctrl">Ctrl</div>
-            <div className="key">Win</div>
+            <div className="key">
+              <img src={winImageLeft} alt="Win" style={{ width: '20px', height: '20px' }} />
+            </div>
             <div className="key">Alt</div>
             <div className="key space" onClick={() => handleButtonClick('key_space')}>Пробел</div>
             <div className="key">Alt</div>
-            <div className="key">Win</div>
+            <div className="key">
+              <img src={winImageRight} alt="Win" style={{ width: '20px', height: '20px' }} />
+            </div>
             <div className="key ctrl">Ctrl</div>
         </div>
       </div>
