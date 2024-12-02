@@ -5,17 +5,27 @@ body
     height: 100vh
     background-color: rgb(160, 160, 160)
     
+.inputLine 
+    display: flex
+    justify-content: center
+    align-items: center
+    margin: 10px 0
 
-.inputLine_text
-    position: absolute
-    top: 10%
-    left: 50%
-    transform: translateX(-50%)
-    width: 80%
-    max-width: 660px
-    height: 50px
-    font-size: 2.5vw
+.inputLine_text 
+    width: 100%
+    max-width: 400px
+    padding: 10px
+    border: 1px solid #ccc
+    border-radius: 4px
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1)
+    font-size: 25px
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+
+/* Добавление стилей для адаптивности */
+@media (max-width: 600px) 
+    .inputLine_text 
+        font-size: 14px
+    
 
 .keyboard 
     display: flex
@@ -40,11 +50,13 @@ body
     font-weight: bold
     flex: 1
     cursor: pointer
+    color: #000
+    background-color: #fff
     transition: background-color 0.3s
     user-select: none
 
 .key:hover 
-    background-color: #d0d0d0
+     background-color: rgb(160, 160, 160)
 
 .space 
     flex: 5
