@@ -1,9 +1,9 @@
 body 
     display: flex
     justify-content: center
-    align-items: center
+    align-items: flex-end
     height: 100vh
-    background-color: rgb(160, 160, 160)
+    background-color: rgb(100, 130, 120)
     
 .inputLine 
     display: flex
@@ -13,7 +13,7 @@ body
 
 .inputLine_text 
     width: 100%
-    max-width: 400px
+    max-width: 600px
     padding: 10px
     border: 1px solid #ccc
     border-radius: 4px
@@ -34,10 +34,15 @@ body
     border-radius: 5px
     background-color: #fff
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1)
-
+    width: 650px
+    &.background
+         width: 652px
 
 .row 
     display: flex
+    justify-content: center
+    align-content: center
+    align-items: center
 
 
 .key 
@@ -54,6 +59,17 @@ body
     background-color: #fff
     transition: background-color 0.3s
     user-select: none
+    &.inactive
+        background-color: rgb(120, 120, 120)
+        &:hover 
+            background-color: rgb(30, 30, 30)
+            color: rgb(255, 255, 255)
+    &.clicked
+         background-color: rgb(35, 104, 35)
+         color: rgb(255, 255, 255)
+         &:hover 
+            background-color: rgb(35, 104, 35)
+            color: rgb(255, 255, 255)
 
 .key:hover 
      background-color: rgb(160, 160, 160)
@@ -67,3 +83,27 @@ body
 .ctrl, .win, .alt 
     flex: 1
 
+
+.text-container 
+  display: block
+  border: 1px solid #ccc
+  border-radius: 5px
+  background-color: #1a1a1a
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1)
+  width: 650px
+  height: 120px
+  font-size: 24px
+  margin-top: 20px
+  margin-bottom: 100px
+  bottom: 500px
+  overflow-wrap: break-word
+  user-select: none
+
+
+.highlighted 
+  color: lightgreen
+  &.bad
+    color: red
+
+.remaining 
+  color: white
