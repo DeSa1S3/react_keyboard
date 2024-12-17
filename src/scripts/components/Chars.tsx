@@ -1,0 +1,68 @@
+
+class CharsComponents  {
+      public writableChars: readonly string[] = [
+        'key_q', 
+        'key_w', 
+        'key_e',
+        'key_r',
+        'key_t',
+        'key_y',
+        'key_u',
+        'key_o',
+        'key_p',
+        'key_a',
+        'key_s',
+        'key_d',
+        'key_f',
+        'key_g',
+        'key_h',
+        'key_j',
+        'key_k',
+        'key_l',
+        'key_z',
+        'key_x',
+        'key_c',
+        'key_v',
+        'key_b',
+        'key_n',
+        'key_m',
+        'key_i'
+      ];
+    
+      public writableCharsRus: readonly string[] = [
+        'key_q', 
+        'key_w', 
+        'key_e',
+        'key_r',
+        'key_t',
+        'key_y',
+        'key_u',
+        'key_o',
+        'key_p',
+        'key_a',
+        'key_s',
+        'key_d',
+        'key_f',
+        'key_g',
+        'key_h',
+        'key_j',
+        'key_k',
+        'key_l',
+        'key_z',
+        'key_x',
+        'key_c',
+        'key_v',
+        'key_b',
+        'key_n',
+        'key_m',
+        'key_sq_bracket_left',
+        'key_sq_bracket_right',
+        'key_semicolon',
+        'key_uppercomma',
+        'key_comma',
+        'key_dot',
+        'key_i'
+      ];
+}
+
+export { CharsComponents };
